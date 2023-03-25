@@ -11,7 +11,7 @@ datasource db {
 }
 
 model bucket {
-  id    Int     @id @default(autoincrement())
+  id    Int    @id @default(autoincrement())
   name  String
   cards card[]
 }
@@ -20,6 +20,6 @@ model card {
   id       Int    @id @default(autoincrement())
   name     String
   url      String
-  bucket   bucket @relation(fields: [bucketId], references: [id])
   bucketId Int
+  bucket   bucket @relation(fields: [bucketId], references: [id])
 }

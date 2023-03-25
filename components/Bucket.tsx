@@ -1,6 +1,6 @@
 import React from 'react'
 import { Prisma } from "@prisma/client";
-import Card from './Card';
+import Cards from './Cards';
 
 
 interface Props {
@@ -14,7 +14,8 @@ const Bucket = ({ buckets }: Props) => {
                 buckets.map((bucket, i) => {
                     return (
                         <div key={i}>
-                            <h1>{i+1}. {bucket.name}</h1>
+                            <h1>{i + 1}. {bucket.name}</h1>
+                            <Cards cardList={bucket.cards as Prisma.cardSelect[]} />
                         </div>
                     )
                 })
