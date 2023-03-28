@@ -56,10 +56,20 @@ export default function Home({ buckets }: Props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="">
-        <input type="text" placeholder='Type your bucket name' name="bucketName" id="" value={bucketName} onChange={(e) => { setBucketName(e.target.value) }} />
-        <button type="submit" onClick={addBucketHandler} className="border border-white">Create Bucket</button>
-        <Bucket buckets={bucketList} />
+      <main className="w-[90%] h-[100vh] mx-auto flex">
+        <div className='flex w-[20%]'>
+          <span>History</span>
+        </div>
+        <div className='w-[80%] flex flex-col gap-8'>
+          <div className='flex w-full mx-auto gap-4'>
+            <div className='flex flex-col w-[90%]'>
+              <label className='' htmlFor="bucketName">Create a Bucket</label>
+              <input type="text" className="h-10 px-3" placeholder='Type your bucket name' name="bucketName" id="bucketName" value={bucketName} onChange={(e) => { setBucketName(e.target.value) }} />
+            </div>
+            <button type="submit" onClick={addBucketHandler} className="border w-[10%] border-white">Create Bucket</button>
+          </div>
+          <Bucket buckets={bucketList} getBucketList={getBucketList} />
+        </div>
       </main>
     </>
   )
