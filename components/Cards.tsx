@@ -28,7 +28,7 @@ const Cards = ({
   const createCardHandler = async () => {
     if (cardName === "" || url === "") return;
     try {
-      const res = await axios.post("http://localhost:5000/api/cards/create", {
+      const res = await axios.post("https://card-bucket.vercel.app/api/cards/create", {
         cardName: cardName,
         link: url,
         bucketId: bucketId,
@@ -44,7 +44,7 @@ const Cards = ({
 
   const deleteCardHandler = async (id: number) => {
     try {
-      const res = await axios.post("http://localhost:5000/api/cards/delete", {
+      const res = await axios.post("https://card-bucket.vercel.app/api/cards/delete", {
         cardId: id,
       });
       console.log(res.data);
@@ -60,7 +60,7 @@ const Cards = ({
     prevUrl: string
   ) => {
     try {
-      const res = await axios.post("http://localhost:5000/api/cards/update", {
+      const res = await axios.post("https://card-bucket.vercel.app/api/cards/update", {
         cardId: id,
         newCardName: updatedCardName || prevName,
         newLink: updatedUrl || prevUrl,

@@ -14,7 +14,7 @@ const Bucket = ({ buckets, getBucketList }: Props) => {
     const [link , setLink] = useState("")
     const deleteBucket = async (id: number) => {
         try {
-            const res = await axios.post("http://localhost:5000/api/bucket/delete", {
+            const res = await axios.post("https://card-bucket.vercel.app/api/bucket/delete", {
                 bucketId: id,
             });
             console.log(res.data);

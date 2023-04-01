@@ -21,7 +21,7 @@ export default function Home({ buckets }: Props) {
 
   const getBucketList = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/bucket")
+      const res = await axios.get("https://card-bucket.vercel.app/api/bucket")
       console.log(res.data)
       setBucketList(res.data)
     } catch (error) {
@@ -36,7 +36,7 @@ export default function Home({ buckets }: Props) {
   const addBucketHandler = async () => {
     if (bucketName === "") return
     try {
-      const res = await axios.post("http://localhost:5000/api/bucket/create", {
+      const res = await axios.post("https://card-bucket.vercel.app/api/bucket/create", {
         name: bucketName
       })
       setBucketName("")
@@ -76,11 +76,11 @@ export default function Home({ buckets }: Props) {
 }
 
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  const buckets = await prisma.bucket.findMany()
-  return {
-    props: {
-      buckets: buckets
-    }
-  }
-}
+// export const getServerSideProps: GetServerSideProps = async () => {
+//   const buckets = await prisma.bucket.findMany()
+//   return {
+//     props: {
+//       buckets: buckets
+//     }
+//   }
+// }
